@@ -101,9 +101,16 @@ func TestValidateVersion(t *testing.T) {
 			semver.ErrSegmentStartsZero,
 		},
 		{
-			"Invalid version number",
+			"Invalid characters in version",
 			args{
 				ver: "1.1.3.sd.023658",
+			},
+			semver.ErrInvalidCharacters,
+		},
+		{
+			"Invalid semantic version",
+			args{
+				ver: "1",
 			},
 			semver.ErrInvalidSemVer,
 		},
