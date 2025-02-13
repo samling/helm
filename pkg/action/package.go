@@ -112,7 +112,7 @@ func (p *Package) Run(path string, _ map[string]interface{}) (string, error) {
 
 // validateVersion Verify that version is a Version, and error out if it is not.
 func validateVersion(ver string) error {
-	if _, err := semver.NewVersion(ver); err != nil {
+	if _, err := semver.StrictNewVersion(ver); err != nil {
 		return err
 	}
 	return nil
